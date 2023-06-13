@@ -196,7 +196,6 @@ span {
     padding: 10rem 9% 2rem;
 }
 
-
 .certifications-media a {
     display: flex;
     width: 40rem;
@@ -673,9 +672,6 @@ span {
     html {
         font-size: 50%;
     }
-    .skill-main {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 365px) {
@@ -684,8 +680,5 @@ span {
     }
     .footer {
         flex-direction: column-reverse;
-    }
-    .skill-main {
-        grid-template-columns: 1fr;
     }
 }

@@ -191,7 +191,7 @@ span {
     justify-content: left;
     align-items: left;
     gap: 2rem;
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
     min-height: 50vh;
     padding: 10rem 9% 2rem;
 }
@@ -217,12 +217,202 @@ span {
 }
 
 
+.skills {
+    background-color: var(--second-bg-color);
+}
+
+.skills-content {
+    margin-bottom: 2rem;
+}
+
+.skill-main {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 50px;
+}
+
+.skill-bar {
+    margin-bottom: 2.3rem;
+}
+
+.skill-main h3 {
+    margin-bottom: 2rem;
+    font-size: 2.6rem;
+    text-align: center;
+}
+/* Skills left */
+.skill-left .skill-bar .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 2rem;
+}
+
+.skill-left .skill-bar .bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--bg-color);
+    border-radius: 25px;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.skill-bar .bar span {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background: var(--main-color);
+    border-radius: 25px;
+    box-shadow: 0 0 1rem var(--bg-color);
+}
+
+@keyframes html {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes css {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes javascript {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 82%;
+    }
+}
+
+@keyframes mernstack {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+@keyframes splunkadmin {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 75%;
+    }
+}
+
+.skill-bar .bar .html {
+    width: 90%;
+    animation: html 3s
+}
+
+.skill-bar .bar .css {
+    width: 85%;
+    animation: css 3s;
+}
+
+.skill-bar .bar .javascript {
+    width: 82%;
+    animation: javascript 3s;
+}
+
+.skill-bar .bar .mernstack {
+    width: 70%;
+    animation: mernstack 3s;
+}
+
+.skill-bar .bar .splunkadmin {
+    width: 75%;
+    animation: splunkadmin 3s;
+}
+
+
+/* Skills right */
+.professional {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 30px;
+}
+
+.box {
+    position: relative;
+    margin: 10px 0;
+    flex: 1 1 15rem;
+    font-size: 1.6rem;
+}
+
+.circle {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #fff; */
+}
+
+.box .text {
+    text-align: center;
+    color: #fff;
+}
+
+.box .text big {
+    font: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box .text small {
+    display: block;
+    font-weight: 600;
+}
+
+.circle .points {
+    width: 2px;
+    height: 10px;
+    background-color: var(--second-bg-color);
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i)*var(--rot))) translateY(-45px);
+}
+
+.points.marked {
+    animation: glow 0.04s linear forwards;
+    animation-delay: calc(var(--i)*0.05s);
+}
+
+@keyframes glow {
+    0% {
+        background: var(--second-bg-color);
+        box-shadow: none;
+    }
+    100% {
+        background: var(--main-color);
+        box-shadow: var(--main-color);
+    }
+}
 
 .services h2 {
     margin-bottom: 5rem;
 }
 
-.service-container{
+.service-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -354,30 +544,6 @@ span {
     flex-wrap: wrap;
 }
 
-.contact form .input-box input,
-.contact form textarea {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--second-bg-color);
-    border-radius: .8rem;
-    margin: .7rem 0;
-}
-
-.contact form .input-box input {
-    width: 49%;
-}
-
-.contact form textarea {
-    resize: none;
-}
-
-.contact form .btn {
-    margin-top: 2rem;
-    cursor:  pointer;
-}
-
 .footer {
     display: flex;
     justify-content: space-between;
@@ -489,10 +655,16 @@ span {
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
     }
+    .skill-main {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 617px) {
     .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+    .skill-main {
         grid-template-columns: 1fr;
     }
 }
@@ -500,6 +672,9 @@ span {
 @media (max-width: 450px) {
     html {
         font-size: 50%;
+    }
+    .skill-main {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -509,5 +684,8 @@ span {
     }
     .footer {
         flex-direction: column-reverse;
+    }
+    .skill-main {
+        grid-template-columns: 1fr;
     }
 }
